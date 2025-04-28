@@ -1,0 +1,68 @@
+{
+  "_chunk-B4YtIkwa.js": {
+    "file": "assets/chunks/chunk-B4YtIkwa.js",
+    "name": "Loading",
+    "imports": [
+      "_chunk-eNsCccAQ.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/layouts_tailwind-00e65532.BWKF8_P-.css"
+    ]
+  },
+  "_chunk-eNsCccAQ.js": {
+    "file": "assets/chunks/chunk-eNsCccAQ.js",
+    "name": "executeHook"
+  },
+  "_layouts_tailwind-00e65532.BWKF8_P-.css": {
+    "file": "assets/static/layouts_tailwind-00e65532.BWKF8_P-.css",
+    "src": "_layouts_tailwind-00e65532.BWKF8_P-.css"
+  },
+  "_vike-react-b64a028b.BcWtY8Ol.css": {
+    "file": "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+    "src": "_vike-react-b64a028b.BcWtY8Ol.css"
+  },
+  "node_modules/vike/dist/esm/client/client-routing-runtime/entry.js": {
+    "file": "assets/entries/entry-client-routing.Du-fpk1P.js",
+    "name": "entries/entry-client-routing",
+    "src": "node_modules/vike/dist/esm/client/client-routing-runtime/entry.js",
+    "isEntry": true,
+    "imports": [
+      "_chunk-eNsCccAQ.js"
+    ],
+    "dynamicImports": [
+      "virtual:vike:pageConfigValuesAll:client:/pages/_error",
+      "virtual:vike:pageConfigValuesAll:client:/pages/index"
+    ]
+  },
+  "virtual:vike:pageConfigValuesAll:client:/pages/_error": {
+    "file": "assets/entries/pages_error.Coxc1M9j.js",
+    "name": "entries/pages/_error",
+    "src": "virtual:vike:pageConfigValuesAll:client:/pages/_error",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-B4YtIkwa.js",
+      "_chunk-eNsCccAQ.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/layouts_tailwind-00e65532.BWKF8_P-.css"
+    ]
+  },
+  "virtual:vike:pageConfigValuesAll:client:/pages/index": {
+    "file": "assets/entries/pages_index.Cf0oSVY7.js",
+    "name": "entries/pages/index",
+    "src": "virtual:vike:pageConfigValuesAll:client:/pages/index",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-B4YtIkwa.js",
+      "_chunk-eNsCccAQ.js"
+    ],
+    "css": [
+      "assets/static/vike-react-b64a028b.BcWtY8Ol.css",
+      "assets/static/layouts_tailwind-00e65532.BWKF8_P-.css"
+    ]
+  }
+}
