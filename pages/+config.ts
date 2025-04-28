@@ -10,8 +10,8 @@ export default {
   Layout,
 
   // https://vike.dev/head-tags
-  title: "My Vike App",
-  description: "Demo showcasing Vike",
+  title: "康軒學習網｜YOURCLASS專屬你的雲端課堂 - 我的課程",
+  description: "配合你的步調，影音課程、試題複習、診斷學力，升學與素養一站全滿足。不怕學校進度跟不上；家教、補習時間不夠用。在康軒學習網，擁有專屬你的雲端課堂，跟著康軒不停學！",
 
   extends: vikeReact,
 } satisfies Config;
