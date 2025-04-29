@@ -52,7 +52,7 @@ export default function Page() {
   ), [eduStages, grade, subject]);
 
   return (
-    <div className="flex gap-6 max-w-7xl mx-auto relative">
+    <div className="flex gap-6 max-w-7xl mx-auto relative min-h-[calc(100dvh-(var(--spacing)*20))]">
       <div className={`flex flex-col gap-4 absolute xl:sticky xl:top-30 bg-white z-20 h-full w-72 px-4 pt-4 shadow xl:w-96 xl:shadow-none xl:bg-transparent xl:pt-0 xl:mt-10 ${showFilter ? "translate-0" : "-translate-x-72"} xl:translate-none duration-300 ease-in-out`}>
         <div className="flex justify-end xl:hidden">
           <span className="material-symbols-outlined cursor-pointer" onClick={() => setShowFilter(false)}>
@@ -64,6 +64,7 @@ export default function Page() {
           <div className="flex gap-2 flex-wrap">
             {eduStagesOptions.map(option => (
               <FilterButton
+                key={option.value}
                 label={option.label}
                 selected={eduStages.includes(option.value)}
                 onClick={() => setEduStages(prev => prev.includes(option.value) ? prev.filter(v => v !== option.value) : [...prev, option.value])}
@@ -76,6 +77,7 @@ export default function Page() {
           <div className="flex gap-2 flex-wrap">
             {gradeOptions.map(option => (
               <FilterButton
+                key={option.value}
                 label={option.label}
                 selected={grade.includes(option.value)}
                 onClick={() => setGrade(prev => prev.includes(option.value) ? prev.filter(v => v !== option.value) : [...prev, option.value])}
@@ -88,6 +90,7 @@ export default function Page() {
           <div className="flex gap-2 flex-wrap">
             {subjectOptions.map(option => (
               <FilterButton
+                key={option.value}
                 label={option.label}
                 selected={subject.includes(option.value)}
                 onClick={() => setSubject(prev => prev.includes(option.value) ? prev.filter(v => v !== option.value) : [...prev, option.value])}
@@ -107,6 +110,11 @@ export default function Page() {
         </span>
       </div>
       <div className="grid grid-cols-6 gap-4 w-full mt-10">
+        {filteredData.length === 0 && (
+          <div className="col-span-6 text-center text-2xl font-semibold my-auto">
+            您尚未購買此類別相關產品
+          </div>
+        )}
         {filteredData.map(classInfo => (
           <Card classInfo={classInfo} key={classInfo.id} />
         ))}
@@ -140,7 +148,6 @@ function Card({ classInfo }: { classInfo: ClassInfo }) {
 function FilterButton({ label, selected, onClick }: { label: string; selected: boolean; onClick: () => void }) {
   return (
     <button
-      key={label}
       className={`px-3 py-2 border ${selected ? "border-primary text-primary" : "border-grey-400 text-grey-600"}  rounded bg-white  text-nowrap cursor-pointer`}
       onClick={onClick}
     >
