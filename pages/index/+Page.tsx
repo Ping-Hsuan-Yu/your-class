@@ -53,7 +53,7 @@ export default function Page() {
 
   return (
     <div className="flex gap-6 max-w-7xl mx-auto relative min-h-[calc(100dvh-(var(--spacing)*20))]">
-      <div className={`flex flex-col gap-4 absolute xl:sticky xl:top-30 bg-white z-20 h-full w-72 px-4 pt-4 shadow xl:w-96 xl:shadow-none xl:bg-transparent xl:pt-0 xl:mt-10 ${showFilter ? "translate-0" : "-translate-x-72"} xl:translate-none duration-300 ease-in-out`}>
+      <div className={`flex flex-col gap-4 fixed xl:sticky xl:top-30 bg-white z-20 h-full w-72 px-4 pt-4 shadow xl:w-96 xl:shadow-none xl:bg-transparent xl:pt-0 xl:mt-10 ${showFilter ? "translate-0" : "-translate-x-72"} xl:translate-none duration-300 ease-in-out`}>
         <div className="flex justify-end xl:hidden">
           <span className="material-symbols-outlined cursor-pointer" onClick={() => setShowFilter(false)}>
             close
