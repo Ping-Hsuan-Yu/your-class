@@ -109,7 +109,7 @@ export default function Page() {
           tune
         </span>
       </div>
-      <div className="grid grid-cols-6 gap-4 w-full mt-10">
+      <div className={`grid grid-cols-6 gap-4 w-full mt-10 ${filteredData.length === 0 ? "" : "my-auto"}`}>
         {filteredData.length === 0 && (
           <div className="col-span-6 text-center text-2xl font-semibold my-auto">
             您尚未購買此類別相關產品
