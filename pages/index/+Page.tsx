@@ -19,13 +19,20 @@ const eduStagesOptions = [
   { value: "others", label: "能力素養" },
 ]
 
-const gradeOptions = [
+const eleGradeOptions = [
   { value: "1", label: "一年級" },
   { value: "2", label: "二年級" },
   { value: "3", label: "三年級" },
   { value: "4", label: "四年級" },
   { value: "5", label: "五年級" },
-  { value: "6", label: "六年級" }
+  { value: "6", label: "六年級" },
+];
+
+const junHighGradeOptions = [
+  { value: "6.5", label: "國中先修" },
+  { value: "7", label: "七年級" },
+  { value: "8", label: "八年級" },
+  { value: "9", label: "九年級" },
 ];
 
 const subjectOptions = [
@@ -35,14 +42,17 @@ const subjectOptions = [
   { value: "NA", label: "自然" },
   { value: "SO", label: "社會" },
   { value: "MC", label: "閩南語" },
-  { value: "TC", label: "科技" }
 ]
+
+const initEduStages = [...new Set(data.map((item) => item.eduStages))];
+const initGrade = [...new Set(data.map((item) => item.grade.toString()))];
+const initSubject = [...new Set(data.map((item) => item.subject))];
 
 export default function Page() {
 
-  const [eduStages, setEduStages] = useState(["ele", "jun-high", "exam", "others"]);
-  const [grade, setGrade] = useState(["1", "2", "3", "4", "5", "6"]);
-  const [subject, setSubject] = useState(["CH", "EN", "MA", "NA", "SO", "MC", "TC"]);
+  const [eduStages, setEduStages] = useState<string>(initEduStages[0]);
+  const [grade, setGrade] = useState<string[]>(initGrade);
+  const [subject, setSubject] = useState<string[]>(initSubject);
   const [showFilter, setShowFilter] = useState(false);
 
   const filteredData = useMemo(() => data.filter(item =>
@@ -67,15 +77,23 @@ export default function Page() {
                 key={option.value}
                 label={option.label}
                 selected={eduStages.includes(option.value)}
-                onClick={() => setEduStages(prev => prev.includes(option.value) ? prev.filter(v => v !== option.value) : [...prev, option.value])}
+                onClick={() => setEduStages(option.value)}
               />
             ))}
           </div>
         </div>
-        <div>
+        {(eduStages === "ele" || eduStages === "jun-high") && <div>
           <div className="text-xl mb-2">年級</div>
           <div className="flex gap-2 flex-wrap">
-            {gradeOptions.map(option => (
+            {eduStages === "ele" && eleGradeOptions.map(option => (
+              <FilterButton
+                key={option.value}
+                label={option.label}
+                selected={grade.includes(option.value)}
+                onClick={() => setGrade(prev => prev.includes(option.value) ? prev.filter(v => v !== option.value) : [...prev, option.value])}
+              />
+            ))}
+            {eduStages === "jun-high" && junHighGradeOptions.map(option => (
               <FilterButton
                 key={option.value}
                 label={option.label}
@@ -84,8 +102,8 @@ export default function Page() {
               />
             ))}
           </div>
-        </div>
-        <div>
+        </div>}
+        {eduStages !== "others" && <div>
           <div className="text-xl mb-2">科目</div>
           <div className="flex gap-2 flex-wrap">
             {subjectOptions.map(option => (
@@ -97,7 +115,7 @@ export default function Page() {
               />
             ))}
           </div>
-        </div>
+        </div>}
       </div>
       {showFilter && <div className="w-dvw h-dvh bg-grey-600 opacity-50 fixed z-10 transform xl:hidden"></div>}
       <div
